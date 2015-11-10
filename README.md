@@ -22,8 +22,8 @@ This guide shows you how to integrate the 1Mobile AdNetwork SDK.
      
 ## Setup application’s information
 
-  Step 1. Setup your application’s 1Mobile AdNetwork {APP_ID} and {API_KEY} which you applied from 1Mobile AdNetwork Team.
-  <br/> *Open AndroidManifest.xml file, and add the following lines:*
+  Step 1. Open AndroidManifest.xml file, and add the following lines to set {APP_ID} and {API_KEY}:
+  <br/> *1Mobile AdNetwork {APP_ID} and {API_KEY} which you applied from 1Mobile AdNetwork Team.*
   
       <application
         android:allowBackup="true"
