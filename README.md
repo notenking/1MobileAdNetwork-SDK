@@ -1,17 +1,17 @@
 # 1Mobile AdNetwork SDK Guide v1.0
 
-This guide shows you how to integrate the 1Mobile AdNetwork SDK.
+This guide shows you how to integrate the 1Mobile AdNetwork SDK to your project.
 *For a working implementation of this project see the `sample/` folder.*
 
 # Getting started
 
 ## Include library to your project (For Android Studio)
  
-  Step 1. Copy 1MobileAdNetworkSDK.jar and AudienceNetwork.jar files in the /libs folder in your project.
+  Step 1. Copy 1MobileAdNetworkSDK.jar and AudienceNetwork.jar files to your project.
      
    ![Android Studio Screenshot](screenshots/as_1.png)
      
-  Step 2. Add 1MobileAdNetworkSDK.jar, AudienceNetwork.jar and Google play service to the dependencies.<br/> *Add the following lines to your app's build.gradle:*
+  Step 2. Copy follow line to your build.gradle.<br/> 
     
         dependencies {
             compile files('libs/1MobileAdNetworkSDK.jar')
@@ -21,19 +21,18 @@ This guide shows you how to integrate the 1Mobile AdNetwork SDK.
 
 ## Include library to your project (For Eclipse)
  
-  Step 1. Copy 1MobileAdNetworkSDK.jar and AudienceNetwork.jar files in the /libs folder in your project.
+  Step 1. Copy 1MobileAdNetworkSDK.jar and AudienceNetwork.jar to your project.
      
    ![Android Studio Screenshot](screenshots/eclipse_1.png)
     
-  Step 2. Add Google play service as follow: 
-  <br/>More about setup Google play service, see [Setting Up Google Play Services](https://developers.google.com/android/guides/setup). 
+  Step 2. [Add Google Play Services to Your Project](https://developers.google.com/android/guides/setup). 
      
    ![Android Studio Screenshot](screenshots/eclipse_2.png)
      
 ## Setup application’s information
 
-  Step 1. Open AndroidManifest.xml file, and add the following lines to set {APP_ID} and {API_KEY}:
-  <br/> *1Mobile AdNetwork {APP_ID} and {API_KEY} which you applied from 1Mobile AdNetwork Team.*
+  Step 1. Copy the following lines to set {APP_ID} and {API_KEY}  in AndroidManifest.xml file,:
+  <br/> *{APP_ID} and {API_KEY} which you can applied from 1Mobile AdNetwork Teamer.*
   
       <application
         android:allowBackup="true"
@@ -46,7 +45,7 @@ This guide shows you how to integrate the 1Mobile AdNetwork SDK.
         ...
       </application>
       
-  Step 2. Then set the {APP_ID} and {API_KEY} values in strings.xml:
+  Step 2. Set the {APP_ID} and {API_KEY} values in strings.xml:
   
       <resources>
           <string name="om_adnetwork_app_id">1001</string>
@@ -100,7 +99,7 @@ This guide shows you how to integrate the 1Mobile AdNetwork SDK.
       </application>
       
 # Banner Ads
-This guide explains how to add banner ads to your app.
+This guide will show you how to add banner ads to your application.
 
   Step 1. Edit the layout file of your Activity.
             
@@ -123,8 +122,7 @@ This guide explains how to add banner ads to your app.
   
     </RelativeLayout>
 
-  Step 2. Instantiate an AdViewLayout object and make a request to load an ad. Since AdViewLayout is a subclass of View, 
-  you can add it to your view hierarchy just as with any other view.
+  Step 2. Copy the following line to your Activity.
   
       @Override
       protected void onCreate(Bundle savedInstanceState) {
@@ -134,21 +132,21 @@ This guide explains how to add banner ads to your app.
           // Find the parent layout in your activity.
           LinearLayout adViewLayout = (LinearLayout) this.findViewById(R.id.adView);
           // New an AdView.
-          AdViewLayout adView = new AdViewLayout(this, "1"); // FIXME set your slot id 
+          AdViewLayout adView = new AdViewLayout(this, "100"); // FIXME set your slot id 
           // Then add it to the parent layout.
           adViewLayout.addView(adView);
       }
   
   Note. *Different place ad must have a different slot id, you must set your slot id in arguments of new AdViewLayout(this, "1"). <br/>Slot id is specified by yourself and it must be a integer that greater than 0.*
   
-### Run and display
+### finish
 ![Android Studio Screenshot](screenshots/banner_1.png).     .![Android Studio Screenshot](screenshots/banner_2.png)
 
 # Native Ads
 The Native Ad API allows you to build a customized experience for the ads you show in your app. 
 When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom view where the ad is shown.
   
-  Step 1. Create a function that requests a native ad:
+  Step 1. Copy the following line, requests a native ad:
             
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +173,7 @@ When using the Native Ad API, instead of receiving an ad ready to be displayed, 
     }
 
 
-  Step 2. Extract the ad metadata and use its properties to build your customized native UI. For example:
+  Step 2. Build your customized native UI with metadata. For example:
   
     private void fillAdContent(Ad ad) {
         View container = (View) findViewById(R.id.nativeAdView);
@@ -199,14 +197,7 @@ When using the Native Ad API, instead of receiving an ad ready to be displayed, 
 
   Note. *The SDK will log the impression and handle the click automatically. 
   Please note that you must register the ad's view with the nativeAd instance to enable that. 
-  Registering the view using nativeAd.registerViewForInteraction() will make the whole view clickable.*
-  
-    nativeAd.registerViewForInteraction(container, new AdClickListener() {
-        @Override
-        public void onAdClicked(Ad ad) {
-            Toast.makeText(MainActivity.this, "Ad Click", Toast.LENGTH_SHORT).show();
-        }
-    });
+
 
   
    
