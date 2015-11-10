@@ -5,20 +5,30 @@ This guide shows you how to integrate the 1Mobile AdNetwork SDK.
 
 # Getting started
 
-## Add 1Mobile AdNetwork SDK and setup dependencies (For Android Studio)
-
+## Include library to your project (For Android Studio)
+ 
   Step 1. Copy 1MobileAdNetworkSDK.jar and AudienceNetwork.jar files in the /libs folder in your project.
-            
+     
    ![Android Studio Screenshot](screenshots/as_1.png)
-
-  Step 2. Add 1MobileAdNetworkSDK.jar, AudienceNetwork.jar and Google play service to the dependencies.
-  <br/> *Add the following lines to your app's build.gradle:*
-   
+     
+  Step 2. Add 1MobileAdNetworkSDK.jar, AudienceNetwork.jar and Google play service to the dependencies.<br/> *Add the following lines to your app's build.gradle:*
+    
         dependencies {
             compile files('libs/1MobileAdNetworkSDK.jar')
             compile files('libs/AudienceNetwork.jar')
             compile 'com.google.android.gms:play-services-ads:8.1.0'
         }
+
+## Include library to your project (For Eclipse)
+ 
+  Step 1. Copy 1MobileAdNetworkSDK.jar and AudienceNetwork.jar files in the /libs folder in your project.
+     
+   ![Android Studio Screenshot](screenshots/eclipse_1.png)
+    
+  Step 2. Add Google play service as follow: 
+  <br/>More about setup Google play service, see [Setting Up Google Play Services](https://developers.google.com/android/guides/setup). 
+     
+   ![Android Studio Screenshot](screenshots/eclipse_2.png)
      
 ## Setup application’s information
 
@@ -131,6 +141,8 @@ This guide explains how to add banner ads to your app.
   
   Note. *Different place ad must have a different slot id, you must set your slot id in arguments of new AdViewLayout(this, "1"). <br/>Slot id is specified by yourself and it must be a integer that greater than 0.*
   
+### Run and display
+![Android Studio Screenshot](screenshots/banner_1.png).     .![Android Studio Screenshot](screenshots/banner_2.png)
 
 # Native Ads
 The Native Ad API allows you to build a customized experience for the ads you show in your app. 
